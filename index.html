@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Girlfriend Day, Mon Coeur!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-1-body">
+    <div class="background-image"></div>
+
+    <div class="container">
+        <h1 class="page1-title">Happy Girlfriend Day, Mon Coeur!</h1>
+        <a href="page2.html" class="nav-button">Let's dive in &lt;3</a>
+    </div>
+    <div class="slow-heart-container"></div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const slowHeartContainer = document.querySelector('.slow-heart-container');
+
+        // Define the colors for the slow hearts
+        const slowHeartColors = [
+            '#C8A2C8', // Lilac
+            '#F5F5DC'  // Creme
+        ];
+
+        function createSlowHeart() {
+            const heart = document.createElement('span');
+            heart.classList.add('slow-heart');
+            heart.innerHTML = '❤️'; // Unicode heart character
+
+            // Randomize initial horizontal position
+            const startX = Math.random() * window.innerWidth;
+            heart.style.left = `${startX}px`;
+
+            // Randomize animation duration and delay for slow, gentle float
+            const duration = 15 + Math.random() * 10; // 15 to 25 seconds (much slower)
+            const delay = Math.random() * 5; // 0 to 5 seconds delay
+            heart.style.animation = `slowHeartFloat ${duration}s ease-in-out ${delay}s forwards`;
+
+            // Randomize starting vertical position slightly below viewport
+            heart.style.bottom = `${-50 - Math.random() * 100}px`; // Start further down
+
+            // Randomly select a color
+            const randomColor = slowHeartColors[Math.floor(Math.random() * slowHeartColors.length)];
+            heart.style.color = randomColor;
+
+            slowHeartContainer.appendChild(heart);
+
+            // Remove heart after animation to prevent DOM bloat
+            heart.addEventListener('animationend', () => {
+                heart.remove();
+            });
+        }
+
+        // Generate slow hearts at a much slower interval
+        setInterval(createSlowHeart, 1500); // Create a new heart every 1.5 seconds (much fewer)
+    });
+</script>
+</body>
+</html>
