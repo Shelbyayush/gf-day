@@ -1,0 +1,387 @@
+/* Import Google Font - Dancing Script */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
+:root {
+    --navy-blue: #A2B9CE; 
+    --lilac: #C8A2C8;     
+    --creme: #F5F5DC;     
+    --baby-pink: #FFDAB9; 
+    --brown: #856e53;     
+    --dark-maroon: #800000; 
+    
+}
+
+body {
+    margin: 0;
+    font-family: 'Dancing Script', cursive; 
+    color: var(--navy-blue);
+    overflow-x: hidden; 
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+}
+
+.background-image {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("whitefield.jpg"); 
+    background-size: cover;
+    background-position: center;
+    filter: blur(3px); 
+    opacity: 0.85; 
+    z-index: -1; 
+    background-attachment: scroll; 
+}
+
+
+.page-1-body .background-image {
+    background-image: url("flower pic.jpg");
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    width: 100%;
+    position: relative; 
+    z-index: 1; 
+    background-color: transparent; 
+
+    border: 3px solid var(--lilac); 
+    border-radius: 25px; 
+    box-shadow: 0 8px 20px rgba(255, 218, 185, 0.4); 
+    transition: box-shadow 0.3s ease; 
+}
+
+.container:hover {
+    box-shadow: 0 10px 25px rgba(255, 218, 185, 0.6); 
+}
+
+
+h1, h2, h3, p, span {
+    margin: 0;
+    padding: 0;
+}
+
+
+.page1-title {
+    font-size: 5em; 
+    font-weight: bold;
+    color: var(--navy-blue);
+    text-shadow: 0 0 10px var(--creme), 0 0 20px var(--creme), 2px 2px 4px rgba(0, 0, 0, 0.73); 
+    animation: fadeIn 2s ease-out;
+    padding: 20px;
+    max-width: 90%;
+    word-wrap: break-word; 
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.nav-button {
+    background-color: var(--baby-pink);
+    color: var(--creme);
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8em;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: #FFC0CB; 
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.message-box {
+    background-color: var(--baby-pink);
+    border-radius: 20px; 
+    padding: 25px;
+    margin: 30px auto;
+    max-width: 700px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+.message-box p {
+    color: var(--lilac);
+    font-size: 2.2em;
+    line-height: 1.4;
+}
+
+.image-frame {
+    border: 3px solid var(--lilac); 
+    border-radius: 15px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--creme); 
+}
+
+.image-frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 12px; 
+}
+
+.portrait-frame {
+    width: 300px; 
+    height: 400px; 
+}
+
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.appreciation-box {
+    background-color: var(--creme);
+    border: 2px solid var(--beige);
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 30px;
+    max-width: 500px;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+}
+
+.appreciation-box p {
+    color: var(--navy-blue);
+    font-size: 1.8em;
+    line-height: 1.3;
+}
+
+.page7-message-box {
+    background-color: var(--baby-pink);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 40px auto;
+    max-width: 800px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+}
+
+.page7-message-box p {
+    color: var(--dark-maroon);
+    font-size: 2.2em;
+    line-height: 1.5;
+}
+
+.flower-bouquet-container {
+    position: relative;
+    width: 400px; 
+    height: 500px;
+    margin-bottom: 30px;
+    perspective: 1000px; 
+}
+
+.flower-bouquet {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: rotateBouquet 10s infinite linear; 
+}
+
+.flower {
+    position: absolute;
+    font-size: 4em;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    animation: floatFlower 5s infinite ease-in-out alternate;
+}
+
+.flower.lilac1 { top: 10%; left: 20%; animation-delay: 0s; color: #C8A2C8; }
+.flower.lilac2 { top: 30%; right: 15%; animation-delay: 1s; color: #C8A2C8; }
+.flower.lily-white { top: 20%; left: 50%; animation-delay: 2s; color: #FFFFFF; }
+.flower.lily-pink { top: 40%; left: 30%; animation-delay: 3s; color: #FFC0CB; }
+.flower.rose-white1 { top: 50%; right: 25%; animation-delay: 4s; color: #FFFFFF; }
+.flower.rose-white2 { top: 60%; left: 10%; animation-delay: 5s; color: #FFFFFF; }
+
+@keyframes rotateBouquet {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+}
+
+@keyframes floatFlower {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(5deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.thank-you-message {
+    font-size: 3.5em;
+    font-weight: bold;
+    color: var(--navy-blue);
+    margin-top: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Page 8 */
+    .heart-confetti-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 2;
+    }
+
+.heart {
+    position: absolute;
+    font-size: 2em;
+    opacity: 0;
+    transform: translateY(0) scale(0);
+    animation-timing-function: ease-out;
+    will-change: transform, opacity;
+}
+
+@keyframes heartPop {
+    0% { opacity: 0; transform: translateY(0) scale(0); }
+    10% { opacity: 1; transform: translateY(-10vh) scale(1); }
+    40% { opacity: 1; transform: translateY(-40vh) scale(1.5); }
+    60% { opacity: 0; transform: translateY(-50vh) scale(2); }
+    100% { opacity: 0; transform: translateY(-60vh) scale(2.5); }
+}
+
+.slow-heart-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0; 
+}
+
+.slow-heart {
+    position: absolute;
+    font-size: 1.5em; 
+    opacity: 0;
+    transform: translateY(0) scale(0.5); 
+    animation-timing-function: ease-in-out; 
+    will-change: transform, opacity;
+}
+
+@keyframes slowHeartFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(100vh) scale(0.5); 
+    }
+    20% {
+        opacity: 0.5;
+        transform: translateY(80vh) scale(0.7);
+    }
+    80% {
+        opacity: 0.5;
+        transform: translateY(20vh) scale(1); 
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(0vh) scale(1.2); 
+    }
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .page1-title {
+        font-size: 3.5em;
+    }
+
+    .nav-button {
+        font-size: 1.5em;
+        padding: 12px 25px;
+    }
+
+    .message-box p, .appreciation-box p, .page7-message-box p {
+        font-size: 1.6em;
+    }
+
+    .portrait-frame {
+        width: 250px;
+        height: 350px;
+    }
+
+    .image-grid {
+        grid-template-columns: 1fr; /* Stack images on small screens */
+    }
+
+    .flower-bouquet-container {
+        width: 300px;
+        height: 400px;
+    }
+
+    .flower {
+        font-size: 3em;
+    }
+
+    .thank-you-message {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .page1-title {
+        font-size: 2.5em;
+    }
+
+    .nav-button {
+        font-size: 1.2em;
+        padding: 10px 20px;
+    }
+
+    .message-box p, .appreciation-box p, .page7-message-box p {
+        font-size: 1.4em;
+    }
+
+    .portrait-frame {
+        width: 200px;
+        height: 300px;
+    }
+
+    .flower-bouquet-container {
+        width: 250px;
+        height: 350px;
+    }
+
+    .flower {
+        font-size: 2.5em;
+    }
+
+    .thank-you-message {
+        font-size: 2em;
+    }
+}

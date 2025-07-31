@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why You're Important to Me</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-image"></div>
+
+    <div class="container">
+        <div class="page7-message-box">
+            <p>My Cutuu, you're the anchor in my storm, the sunshine in my days. Your strength inspires me, your laughter brings me immense joy. I promise to always be your rock, your biggest supporter, and to strive every day to be the man you deserve. Sara, you motivate me to be my best self and for you, and I will always cherish and protect this lil world that we've created. Thank you for everything, mi Amor.</p>
+        </div>
+
+        <audio id="page7-audio" src="beabadoobee - Glue Song (Lyric Video) ft. Clairo-[AudioTrimmer.com].mp3" controls loop></audio>
+
+        <button id="playAudioButton" class="nav-button" style="margin-top: 20px;">Play Music 🎶</button>
+
+        <a href="page8.html" class="nav-button">Finally...</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('page7-audio');
+            const playButton = document.getElementById('playAudioButton');
+
+            audio.style.display = 'none';
+            
+            audio.play().then(() => {
+                playButton.style.display = 'none';
+            }).catch(e => {
+                console.log("Audio autoplay prevented. User interaction needed.", e);
+                playButton.style.display = 'block';
+            });
+
+            playButton.addEventListener('click', function() {
+                audio.play();
+                playButton.style.display = 'none';
+            });
+
+            window.addEventListener('beforeunload', function() {
+                audio.pause();
+            });
+        });
+    </script>
+</body>
+</html>

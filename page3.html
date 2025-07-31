@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Glimpse of Our Journey</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="background-image"></div>
+
+    <div class="container">
+        
+        <div class="message-box">
+            <p style="color: var(--lilac); font-size: 2em;">Us through the lens. We're gonna have more...</p>
+        </div>
+
+        <div class="image-grid">
+            <div class="image-frame portrait-frame">
+                <img src="moon 1.jpg" alt="Your picture 1"> 
+            </div>
+            <div class="image-frame portrait-frame">
+                <img src="date 3.jpg" alt="Your picture 2"> 
+            </div>
+            <div class="image-frame portrait-frame">
+                <img src="moon 2.jpg" alt="Your picture 3"> 
+            </div>
+            <div class="image-frame portrait-frame">
+                <img src="moon 3.jpg" alt="Your picture 4"> 
+            </div>
+            <div class="image-frame portrait-frame">
+                <img src="date 1.jpg" alt="Your picture 5"> 
+            </div>
+            <div class="image-frame portrait-frame">
+                <img src="moon 4.jpg" alt="Your picture 6"> 
+            </div>
+        </div>
+
+        <audio id="page3-audio" src="Fitz And The Tantrums - Out Of My League [Official Music Video]-[AudioTrimmer.com].mp3" controls loop></audio>
+
+        <button id="playAudioButton" class="nav-button" style="margin-top: 20px;">Play Music 🎶</button>
+
+        <a href="page4.html" class="nav-button">Just the beginning</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('page3-audio'); 
+            const playButton = document.getElementById('playAudioButton');
+
+            audio.style.display = 'none';
+            audio.play().then(() => {
+                playButton.style.display = 'none';
+            }).catch(e => {
+                console.log("Audio autoplay prevented. User interaction needed.", e);
+                playButton.style.display = 'block';
+            });
+
+            playButton.addEventListener('click', function() {
+                audio.play();
+                playButton.style.display = 'none'; 
+            });
+
+            window.addEventListener('beforeunload', function() {
+                audio.pause();
+            });
+        });
+    </script>
+</body>
+</html>

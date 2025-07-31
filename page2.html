@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're so precious!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="background-image"></div>
+
+    <div class="container">
+        
+        <img src="tenor.gif" alt="Cute animated characters hugging" style="width: 250px; height: auto; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+
+        
+        <div class="message-box">
+            <p>You're so precious to me. You've flooded my days n nights with Happiness and Love. Now I'll let the rest of the pages do the talking &lt;3</p>
+        </div>
+
+        <audio id="page2-audio" src="One Last Time.mp3" controls loop></audio>
+
+        <button id="playAudioButton" class="nav-button" style="margin-top: 20px;">Play Music 🎶</button>
+
+        <a href="page3.html" class="nav-button">Let's hear em :3</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('page2-audio');
+            const playButton = document.getElementById('playAudioButton');
+            const nextButton = document.querySelector('a[href="page3.html"]'); 
+
+            audio.style.display = 'none'; 
+
+            audio.play().then(() => {
+
+                playButton.style.display = 'none';
+            }).catch(e => {
+
+                console.log("Audio autoplay prevented. User interaction needed.", e);
+                playButton.style.display = 'block'; 
+            });
+
+            playButton.addEventListener('click', function() {
+                audio.play();
+                playButton.style.display = 'none'; 
+            });
+
+
+            window.addEventListener('beforeunload', function() {
+                audio.pause();
+            });
+        });
+    </script>
+</body>
+</html>

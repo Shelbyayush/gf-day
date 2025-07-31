@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You & Celebrate!</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .heart-confetti-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; 
+            overflow: hidden; 
+            z-index: 2; 
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 2em; 
+            opacity: 0; 
+            transform: translateY(0) scale(0);
+            animation-timing-function: ease-out;
+            will-change: transform, opacity;
+        }
+
+        @keyframes heartPop {
+            0% {
+                opacity: 0;
+                transform: translateY(0) scale(0);
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(-10vh) scale(1); 
+            }
+            40% {
+                opacity: 1;
+                transform: translateY(-40vh) scale(1.5); 
+            }
+            60% {
+                opacity: 0;
+                transform: translateY(-50vh) scale(2); 
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-60vh) scale(2.5); 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-image"></div>
+
+    <div class="container">
+        <div class="flower-bouquet-container">
+            <div class="flower-bouquet">
+                <span class="flower lilac1">🌸</span> 
+                <span class="flower lilac2">💜</span> 
+                <span class="flower lily-white">🤍</span> 
+                <span class="flower lily-pink">🌷</span> 
+                <span class="flower rose-white1">🌹</span> 
+                <span class="flower rose-white2">💮</span> 
+            </div>
+            <div class="bouquet-wrap"></div> 
+        </div>
+
+        <h1 class="thank-you-message">I Love You, Sara &lt;3</h1>
+
+        <audio id="page8-audio" src="Stephen Dawes - Happiest Girl (Lyric Video)-[AudioTrimmer.com].mp3" controls loop></audio>
+
+        <button id="playAudioButton" class="nav-button" style="margin-top: 20px;">Play Music 🎶</button>
+    </div>
+
+
+    <div class="heart-confetti-container"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('page8-audio');
+            const playButton = document.getElementById('playAudioButton');
+            const confettiContainer = document.querySelector('.heart-confetti-container');
+
+            audio.play().then(() => {
+                playButton.style.display = 'none';
+            }).catch(e => {
+                console.log("Audio autoplay prevented. User interaction needed.", e);
+                playButton.style.display = 'block';
+            });
+
+            playButton.addEventListener('click', function() {
+                audio.play();
+                playButton.style.display = 'none';
+            });
+
+            window.addEventListener('beforeunload', function() {
+                audio.pause();
+            });
+
+            const heartColors = [
+                '#FFDAB9', // Baby Pink
+                '#C8A2C8', // Lilac
+                '#F5F5DC', // Creme
+                '#A2B9CE',  // Navy Blue
+                '#AB7A5C'
+            ];
+
+            function createHeart() {
+                const heart = document.createElement('span');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤️'; 
+
+                const startX = Math.random() * window.innerWidth;
+                heart.style.left = `${startX}px`;
+                heart.style.bottom = '-20px'; 
+
+                const randomColor = heartColors[Math.floor(Math.random() * heartColors.length)];
+                heart.style.color = randomColor; 
+
+                const duration = (5 + Math.random() * 5) * 0.9; 
+                const delay = Math.random() * 2;
+                heart.style.animation = `heartPop ${duration}s ease-out ${delay}s forwards`;
+
+                confettiContainer.appendChild(heart);
+
+                heart.addEventListener('animationend', () => {
+                    heart.remove();
+                });
+            }
+
+            setInterval(createHeart, 200); 
+        });
+    </script>
+</body>
+</html>

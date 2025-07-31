@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appreciating You - Part 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="background-image"></div>
+
+    <div class="container">
+        
+        <div class="image-frame portrait-frame">
+            <img src="eyes.jpg" alt="Another beautiful picture of you">
+        </div>
+
+        <div class="appreciation-box">
+            <p>Beyond their heavenly beauty, your eyes convey a sense of wonder. I can look into em all day, all night. They soothe me, tease me. I love them so much :D</p> <!-- CUSTOMIZABLE TEXT (max 40 words) -->
+        </div>
+
+        <audio id="page5-audio" src="New West - Those Eyes (Chapter 1)-[AudioTrimmer.com].mp3" controls loop></audio>
+
+        <button id="playAudioButton" class="nav-button" style="margin-top: 20px;">Play Music 🎶</button>
+
+        <a href="page6.html" class="nav-button">A lil recap :3</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('page5-audio'); 
+            const playButton = document.getElementById('playAudioButton');
+
+            audio.style.display = 'none';
+            
+            audio.play().then(() => {
+                playButton.style.display = 'none';
+            }).catch(e => {
+                console.log("Audio autoplay prevented. User interaction needed.", e);
+                playButton.style.display = 'block';
+            });
+
+            playButton.addEventListener('click', function() {
+                audio.play();
+                playButton.style.display = 'none';
+            });
+
+            window.addEventListener('beforeunload', function() {
+                audio.pause();
+            });
+        });
+    </script>
+</body>
+</html>

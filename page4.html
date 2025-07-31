@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appreciating You - Part 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-image"></div>
+
+    <div class="container">
+
+        <div class="image-frame portrait-frame">
+            <img src="selfie 2.jpg", alt = "You beautiful picture">
+        </div>
+
+        <div class="appreciation-box">
+            <p>Your smile makes me happy, your cute annoyance warms my heart. Every moment with you is a treasure, a beautiful masterpiece. Thank you for being you, Sara.</p> <!-- CUSTOMIZABLE TEXT (max 40 words) -->
+        </div>
+
+        <audio id="page4-audio" src="Eyedress & Dent May - Something About You-[AudioTrimmer.com].mp3" controls loop></audio>
+
+        <button id="playAudioButton" class="nav-button" style="margin-top: 20px;">Play Music 🎶</button>
+
+        <a href="page5.html" class="nav-button">Part 2...</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('page4-audio');
+            const playButton = document.getElementById('playAudioButton');
+
+            audio.style.display = 'none';
+            audio.play().then(() => {
+                
+                playButton.style.display = 'none';
+            }).catch(e => {
+                console.log("Audio autoplay prevented. User interaction needed.", e);
+                playButton.style.display = 'block'; 
+            });
+
+            playButton.addEventListener('click', function() {
+                audio.play();
+                playButton.style.display = 'none'; 
+            });
+
+            window.addEventListener('beforeunload', function() {
+                audio.pause();
+            });
+        });
+    </script>
+</body>
+</html>
